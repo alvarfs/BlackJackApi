@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using BlackJackApi.Models;
 
 namespace BlackJackApi.Controllers;
 
@@ -28,14 +30,22 @@ public class CardsController : ControllerBase
         {
             var response = await _httpClient.GetAsync(getDeck);
 
-            if (!response.IsSuccessStatusCode) throw new Exception();
+            if (!response.IsSuccessStatusCode) throw new HttpRequestException();
 
-            var deckData = await response.Content.ReadAsStringAsync();
-            return Content(deckData, "application/json");
+            var deckDataJson = await response.Content.ReadAsStringAsync();
+            var deckResponse = JsonConvert.DeserializeObject<DeckResponse>(deckDataJson);
+            
+            DeckReturn result = new DeckReturn
+            {
+                Deck = deckResponse.Deck_id,
+                Remaining = deckResponse.Remaining
+            };
+
+            return Ok(result);
         }
-        catch (HttpRequestException ex)
+        catch (HttpRequestException)
         {
-            return StatusCode(500, $"Error al intentar mezclar la baraja: {ex.Message}");
+            return StatusCode(500, $"Error al intentar mezclar la baraja");
         }
     }
 
@@ -49,16 +59,28 @@ public class CardsController : ControllerBase
         {
             var response = await _httpClient.GetAsync(getCards);
 
-            if (!response.IsSuccessStatusCode) throw new Exception();
+            if (!response.IsSuccessStatusCode) throw new HttpRequestException();
 
-            var cardsData = await response.Content.ReadAsStringAsync();
-            return Content(cardsData, "application/json");
+            var cardsDataJson = await response.Content.ReadAsStringAsync();
+            var cardResponse = JsonConvert.DeserializeObject<CardResponse>(cardsDataJson);
+            
+            List<string> cards = new List<string>();
+            foreach (var card in cardResponse.Cards)
+                cards.Add(card.Code);
+
+            CardReturn result = new CardReturn
+            {
+                Cards = cards,
+                Remaining = cardResponse.Remaining
+            };
+
+            return Ok(result);
         }
-        catch (HttpRequestException ex)
+        catch (HttpRequestException)
         {
             if (count > 1)
-                return StatusCode(500, $"Error al intentar recoger {count} cartas: {ex.Message}");
-            return StatusCode(500, $"Error al intentar recoger una carta: {ex.Message}");
+                return StatusCode(500, $"Error al intentar recoger {count} cartas");
+            return StatusCode(500, $"Error al intentar recoger una carta");
         }
     }
 
@@ -72,14 +94,22 @@ public class CardsController : ControllerBase
         {
             var response = await _httpClient.GetAsync(getShuffleDeck);
 
-            if (!response.IsSuccessStatusCode) throw new Exception();
+            if (!response.IsSuccessStatusCode) throw new HttpRequestException();
 
-            var deckData = await response.Content.ReadAsStringAsync();
-            return Content(deckData, "application/json");
+            var deckDataJson = await response.Content.ReadAsStringAsync();
+            var deckResponse = JsonConvert.DeserializeObject<DeckResponse>(deckDataJson);
+            
+            DeckReturn result = new DeckReturn
+            {
+                Deck = deckResponse.Deck_id,
+                Remaining = deckResponse.Remaining
+            };
+
+            return Ok(result);
         }
-        catch (HttpRequestException ex)
+        catch (HttpRequestException)
         {
-            return StatusCode(500, $"Error al intentar mezclar la baraja: {ex.Message}");
+            return StatusCode(500, $"Error al intentar mezclar la baraja");
         }
     }
 }
