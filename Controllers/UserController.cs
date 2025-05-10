@@ -9,7 +9,7 @@ using BlackJackApi.Models;
 
 namespace BlackJackApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,36 +20,49 @@ namespace BlackJackApi.Controllers
             _context = context;
         }
 
-        // GET: api/User
+        // Lista de usuarios ordenados por dinero total
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            var userList = await _context.Users
+                .Select(u => new UserDTO
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    Cash = u.Cash
+                }).ToListAsync();
+            
+            userList = userList.OrderByDescending(u => u.Cash).ToList();
+
+            return userList;
         }
 
-        // GET: api/User/5
+        // Recoger datos de un usuario especifico via id
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(long id)
+        public async Task<ActionResult<UserDTO>> GetUser(long id)
         {
             var user = await _context.Users.FindAsync(id);
+            if (user == null) return NotFound();
 
-            if (user == null)
+            var userDto = new UserDTO
             {
-                return NotFound();
-            }
+                Id = user.Id,
+                Username = user.Username,
+                Cash = user.Cash
+            };
 
-            return user;
+            return userDto;
         }
 
-        // PUT: api/User/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(long id, User user)
+        // Actualiza la cuenta del usuario
+        [HttpPut("{id}/{cash}/{isProfit}")]
+        public async Task<IActionResult> PutUser(long id, int cash, bool isProfit)
         {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
+            var user = await _context.Users.FindAsync(id);
+            if (user == null) return NotFound();
+
+            if (isProfit) user.Cash += cash;
+            else user.Cash -= cash;
 
             _context.Entry(user).State = EntityState.Modified;
 
@@ -60,44 +73,49 @@ namespace BlackJackApi.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return NoContent();
         }
 
-        // POST: api/User
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // Crear nuevo usuario, el cual siempre empieza con 100$
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<UserDTO>> PostUser(User user)
         {
+            user.Cash = 100;
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
-        }
-
-        // DELETE: api/User/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(long id)
-        {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var userDto = new UserDTO
             {
-                return NotFound();
-            }
+                Id = user.Id,
+                Username = user.Username,
+                Cash = user.Cash
+            };
 
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            // return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, userDto);
         }
+
+        // DELETE
+        // [HttpDelete("{id}")]
+        // public async Task<IActionResult> DeleteUser(long id)
+        // {
+        //     var user = await _context.Users.FindAsync(id);
+        //     if (user == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     _context.Users.Remove(user);
+        //     await _context.SaveChangesAsync();
+
+        //     return NoContent();
+        // }
 
         private bool UserExists(long id)
         {

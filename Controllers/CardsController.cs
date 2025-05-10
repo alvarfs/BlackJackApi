@@ -50,7 +50,7 @@ public class CardsController : ControllerBase
     }
 
     // Robamos una cantidad especifica de cartas de un mazo existente
-    [HttpGet("GetCards")]
+    [HttpGet("GetCards/{deck_id}/{count}")]
     public async Task<IActionResult> GetCards(string deck_id, int count)
     {
         var getCards = $"https://deckofcardsapi.com/api/deck/{deck_id}/draw/?count={count}";
@@ -85,7 +85,7 @@ public class CardsController : ControllerBase
     }
 
     // Mezclamos nuevamente todas las cartas del mazo (incluidos los descartes)
-    [HttpGet("ShuffleDeck")]
+    [HttpGet("ShuffleDeck/{deck_id}")]
     public async Task<IActionResult> ShuffleDeck(string deck_id)
     {
         var getShuffleDeck = $"https://deckofcardsapi.com/api/deck/{deck_id}/shuffle/";
