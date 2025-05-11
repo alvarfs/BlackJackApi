@@ -55,14 +55,13 @@ namespace BlackJackApi.Controllers
         }
 
         // Actualiza la cuenta del usuario
-        [HttpPut("{id}/{cash}/{isProfit}")]
-        public async Task<IActionResult> PutUser(long id, int cash, bool isProfit)
+        [HttpPut("{id}/{cash}")]
+        public async Task<IActionResult> PutUser(long id, int cash)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null) return NotFound();
 
-            if (isProfit) user.Cash += cash;
-            else user.Cash -= cash;
+            user.Cash = cash;
 
             _context.Entry(user).State = EntityState.Modified;
 
@@ -102,20 +101,20 @@ namespace BlackJackApi.Controllers
         }
 
         // DELETE
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> DeleteUser(long id)
-        // {
-        //     var user = await _context.Users.FindAsync(id);
-        //     if (user == null)
-        //     {
-        //         return NotFound();
-        //     }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(long id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-        //     _context.Users.Remove(user);
-        //     await _context.SaveChangesAsync();
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
         private bool UserExists(long id)
         {
