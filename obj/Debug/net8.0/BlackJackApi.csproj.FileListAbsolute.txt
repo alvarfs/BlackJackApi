@@ -606,3 +606,8 @@ C:\Users\alvar\Desktop\PROJECTS\BlackJack\BlackJackApi\obj\Debug\net8.0\BlackJac
 C:\Users\alvar\Desktop\PROJECTS\BlackJack\BlackJackApi\obj\Debug\net8.0\BlackJackApi.genruntimeconfig.cache
 C:\Users\alvar\Desktop\PROJECTS\BlackJack\BlackJackApi\obj\Debug\net8.0\ref\BlackJackApi.dll
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\obj\Debug\net8.0\BlackJackApi.sourcelink.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Debug\net8.0\publish\web.config
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Debug\net8.0\publish\BlackJackApi.deps.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Debug\net8.0\publish\BlackJackApi.runtimeconfig.json

@@ -100,22 +100,6 @@ namespace BlackJackApi.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, userDto);
         }
 
-        // DELETE
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(long id)
-        {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
         private bool UserExists(long id)
         {
             return _context.Users.Any(e => e.Id == id);
