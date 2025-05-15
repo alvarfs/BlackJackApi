@@ -307,3 +307,13 @@ C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\appsetti
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\appsettings.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\BlackJackApi.deps.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\BlackJackApi.runtimeconfig.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\web.config
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\appsettings.Development.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\appsettings.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\BlackJackApi.deps.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\BlackJackApi.runtimeconfig.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\publish\web.config
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\publish\appsettings.Development.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\publish\appsettings.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\publish\BlackJackApi.deps.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\bin\Release\net8.0\publish\publish\publish\BlackJackApi.runtimeconfig.json

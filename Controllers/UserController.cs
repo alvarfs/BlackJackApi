@@ -37,12 +37,31 @@ namespace BlackJackApi.Controllers
             return userList;
         }
 
-        // Recoger datos de un usuario especifico via id
+        // Recoger datos de un usuario especifico
         [HttpGet("{id}")]
         public async Task<ActionResult<UserDTO>> GetUser(long id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null) return NotFound();
+
+            var userDto = new UserDTO
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Cash = user.Cash
+            };
+
+            return userDto;
+        }
+
+        // Retorna el id del usuario
+        [HttpGet("{username}/{password}")]
+        public async Task<ActionResult<UserDTO>> LoginUser(string username, string password)
+        {
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+
+            if (user == null) return BadRequest("Credenciales incorrectas");
 
             var userDto = new UserDTO
             {
@@ -98,6 +117,21 @@ namespace BlackJackApi.Controllers
 
             // return CreatedAtAction("GetUser", new { id = user.Id }, user);
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, userDto);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(long id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         private bool UserExists(long id)

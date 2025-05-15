@@ -1,4 +1,6 @@
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\BlackJackApi.exe
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\publish\web.config
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\web.config
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\web.config
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\appsettings.Development.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\appsettings.json
@@ -6,6 +8,14 @@ C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\appsettings.Develop
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\appsettings.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\BlackJackApi.deps.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\BlackJackApi.runtimeconfig.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\appsettings.Development.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\appsettings.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\BlackJackApi.deps.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\BlackJackApi.runtimeconfig.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\publish\appsettings.Development.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\publish\appsettings.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\publish\BlackJackApi.deps.json
+C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\publish\publish\publish\BlackJackApi.runtimeconfig.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\BlackJackApi.dll
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\BlackJackApi.runtimeconfig.json
 C:\Users\alvar\Desktop\PROJECTS\BlackJackApi\publish\BlackJackApi.pdb
