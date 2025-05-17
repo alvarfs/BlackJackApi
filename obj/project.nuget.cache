@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zzfzrpHH9EscO+/gWyW2UkxaG32ezvETIam7g4jRccYxAJHxmEZ4Yb2JnBpm5ULl/izXeee2HrVGc+w131MYDw==",
+  "dgSpecHash": "dKBwFzZbPadlwrcSa0+/Zs9YJci4ehJW4IKuNpSTAfd75vqT8ysN/cj7gf3aDUn5gydtWD4ufPavBi7EXpJYCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alvar\\Desktop\\PROJECTS\\BlackJackApi\\BlackJackApi.csproj",
+  "projectFilePath": "C:\\Users\\alvar\\OneDrive\\Escritorio\\PROYECTOS\\BlackJackApi\\BlackJackApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alvar\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\alvar\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
