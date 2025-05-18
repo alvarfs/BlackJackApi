@@ -8475,11 +8475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alvar\\Desktop\\PROJECTS\\BlackJackApi\\BlackJackApi.csproj",
+      "projectUniqueName": "C:\\Users\\alvar\\OneDrive\\Escritorio\\PROYECTOS\\BlackJackApi\\BlackJackApi.csproj",
       "projectName": "BlackJackApi",
-      "projectPath": "C:\\Users\\alvar\\Desktop\\PROJECTS\\BlackJackApi\\BlackJackApi.csproj",
+      "projectPath": "C:\\Users\\alvar\\OneDrive\\Escritorio\\PROYECTOS\\BlackJackApi\\BlackJackApi.csproj",
       "packagesPath": "C:\\Users\\alvar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alvar\\Desktop\\PROJECTS\\BlackJackApi\\obj\\",
+      "outputPath": "C:\\Users\\alvar\\OneDrive\\Escritorio\\PROYECTOS\\BlackJackApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alvar\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -8562,7 +8562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using BlackJackApi.Models;
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<UserContext>(options =>
@@ -24,6 +26,12 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<UserContext>();
+    db.Database.EnsureCreated();
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();
